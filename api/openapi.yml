@@ -1,0 +1,32 @@
+openapi: "3.0.0"
+info:
+  title: it-lime-backend API
+  version: 0.0.1
+servers:
+  - url: https://kyosutech.com
+    description: プロダクション API
+  - url: http://{host}:{port}
+    description: 開発用
+    variables:
+      host:
+        default: localhost
+      port:
+        default: '8000'
+paths:
+  "/health":
+    get:
+      summary: "ヘルスチェック用"
+      tags:
+        - health
+      responses:
+        "200":
+          description: "OK"
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+                    description: "OK"
+      operationId: getAutoReturnTeams
